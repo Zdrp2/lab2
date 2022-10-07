@@ -1,6 +1,12 @@
 #include "massage.h"
 
-void SetMassage(massage* ms, int* i_m, const char* p, int st) {
+massage::massage() {
+}
+
+massage::~massage() {
+}
+
+void massage::SetMassage(massage* ms, int* i_m, const char* p, int st) {
 	massage ms1;
 	strcpy(ms1.fio, p);
 	ms1.exp = st;
@@ -9,7 +15,7 @@ void SetMassage(massage* ms, int* i_m, const char* p, int st) {
 	*i_m = *i_m + 1;
 }
 
-void InputMassage(massage *ms, int i) {
+void massage::InputMassage(massage *ms, int i) {
 	massage ms1;
 	printf("¬ведите стаж массажиста: ");
 	InputInt(&ms1.exp);
@@ -19,7 +25,15 @@ void InputMassage(massage *ms, int i) {
 	*ms = ms1;
 }
 
-void OutputMassage(massage ms[], int i) {
+void massage::OutputMassage(massage ms[], int i) {
 	for (int j = 0; j < i; j++)
 		printf("%d) %d	%s\n", ms[j].MassageId, ms[j].exp, ms[j].fio);
+}
+
+void massage::SetFIO(const char* p) {
+	strcpy(this->fio, p);
+}
+
+char* massage::MassageFIO() {
+	return this->fio;
 }

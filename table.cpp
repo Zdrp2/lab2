@@ -1,21 +1,27 @@
 #include "table.h"
 
-void SetTable(table* tb, int* i_t, const char* cl, const char* ms, const char* sr, const char* st, int h, int p) {
+table::table() {
+}
+
+table::~table() {
+}
+
+void table::SetTable(table* tb, int* i_t, const char* cl, const char* ms, const char* sr, const char* st, int h, int p) {
 	table t1;
-	strcpy(t1.Client.fio, cl);
-	strcpy(t1.Massagist.fio, ms);
-	strcpy(t1.Service.title, sr);
-	strcpy(t1.Place.street, st);
-	t1.Place.house = h;
-	t1.Service.price = p;
+	t1.Client.SetFIO(cl);
+	t1.Massagist.SetFIO(ms);
+	t1.Service.SetTitle(sr);
+	t1.Place.SetStreet(st);
+	t1.Place.SetHouse(h);
+	t1.Service.SetPrice(p);
 	t1.TableId = *i_t + 1;
 	*tb = t1;
 	*i_t = *i_t + 1;
 }
 
-void InputTable(table table[], client cl[], massage ms[], service sr[], place pl[], int i_t, int i_cl, int i_m, int i_sr, int i_p) {
+void table::InputTable(table table[], client cl[], massage ms[], service sr[], place pl[], int i_t, int i_cl, int i_m, int i_sr, int i_p) {
 	int clID, msID, srID, plID;
-	OutputClient(cl, i_cl);
+	cl->OutputClient(cl, i_cl);
 	printf("\nВыберите ID клиента: ");
 	do {
 		InputInt(&clID);
@@ -23,7 +29,7 @@ void InputTable(table table[], client cl[], massage ms[], service sr[], place pl
 			printf("\nПовторите попытку: ");
 	} while (clID > i_cl || clID < 1);
 	printf("\n");
-	OutputMassage(ms, i_m);
+	ms->OutputMassage(ms, i_m);
 	printf("\nВыберите ID массажиста: ");
 	do {
 		InputInt(&msID);
@@ -31,7 +37,7 @@ void InputTable(table table[], client cl[], massage ms[], service sr[], place pl
 			printf("\nПовторите попытку: ");
 	} while (msID > i_m || msID < 1);
 	printf("\n");
-	OutputService(sr, i_sr);
+	sr->OutputService(sr, i_sr);
 	printf("\nВыберите ID услуги: ");
 	do {
 		InputInt(&srID);
@@ -39,7 +45,7 @@ void InputTable(table table[], client cl[], massage ms[], service sr[], place pl
 			printf("\nПовторите попытку: ");
 	} while (srID > i_sr || srID < 1);
 	printf("\n");
-	OutputPlace(pl, i_p);
+	pl->OutputPlace(pl, i_p);
 	printf("\nВыберите ID пункта: ");
 	do {
 		InputInt(&plID);
@@ -53,8 +59,8 @@ void InputTable(table table[], client cl[], massage ms[], service sr[], place pl
 	table[i_t].TableId = i_t + 1;
 }
 
-void OutputTable(table table[], int i) {
+void table::OutputTable(table table[], int i) {
 	printf("<ID>		<ФИО клиента>		     <ФИО массажсита>          <Услуга>	                     <Адрес>            <Цена>\n");
 	for (int j = 0; j < i; j++)
-		printf("\n%d%30s%30s%20s%25s,%d%15d", table[j].TableId, table[j].Client.fio, table[j].Massagist.fio, table[j].Service.title, table[j].Place.street, table[j].Place.house, table[j].Service.price);
+		printf("\n%d%30s%30s%20s%25s,%d%15d", table[j].TableId, table[j].Client.ClientFIO(), table[j].Massagist.MassageFIO(), table[j].Service.ServiceTitle(), table[j].Place.PlaceStreet(), table[j].Place.PlaceHouse(), table[j].Service.ServicePrice());
 }

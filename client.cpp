@@ -1,6 +1,12 @@
 #include "client.h"
 
-void SetClient(client* cl, int* i_cl, const char* p) {
+client::client() {
+}
+
+client::~client() {
+}
+
+void client::SetClient(client* cl, int* i_cl, const char* p) {
 	client cl1;
 	strcpy(cl1.fio, p);
 	cl1.clientId = *i_cl + 1;
@@ -8,7 +14,7 @@ void SetClient(client* cl, int* i_cl, const char* p) {
 	*i_cl = *i_cl + 1;
 }
 
-void InputClient(client *cl, int i) {
+void client::InputClient(client *cl, int i) {
 	client cl1;
 	printf("Введите ФИО клиента: ");
 	InputString(cl1.fio);
@@ -16,7 +22,15 @@ void InputClient(client *cl, int i) {
 	*cl = cl1;
 }
 
-void OutputClient(client cl[], int i) {
+void client::OutputClient(client cl[], int i) {
 	for (int j = 0; j < i; j++)
 		printf("%d) %s\n", cl[j].clientId, cl[j].fio);
+}
+
+char* client::ClientFIO() {
+	return this->fio;
+}
+
+void client::SetFIO(const char* p) {
+	strcpy(this->fio, p);
 }

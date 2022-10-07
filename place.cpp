@@ -1,6 +1,12 @@
 #include "place.h"
 
-void SetPlace(place* pl, int* i_p, const char* p, int h) {
+place::place() {
+}
+
+place::~place() {
+}
+
+void place::SetPlace(place* pl, int* i_p, const char* p, int h) {
 	place pl1;
 	strcpy(pl1.street, p);
 	pl1.house = h;
@@ -9,7 +15,7 @@ void SetPlace(place* pl, int* i_p, const char* p, int h) {
 	*i_p = *i_p + 1;
 }
 
-void InputPlace(place *pl, int i) {
+void place::InputPlace(place *pl, int i) {
 	place pl1;
 	printf("¬ведите улицу: ");
 	InputString(pl1.street);
@@ -19,7 +25,24 @@ void InputPlace(place *pl, int i) {
 	*pl = pl1;
 }
 
-void OutputPlace(place pl[], int i) {
+void place::OutputPlace(place pl[], int i) {
 	for (int j = 0; j < i; j++)
 		printf("%d) %s	%d\n", pl[j].PlaceId, pl[j].street, pl[j].house);
+}
+
+void place::SetStreet(const char* p) {
+	strcpy(this->street, p);
+}
+
+void place::SetHouse(int k) {
+	this->house = k;
+}
+
+int place::PlaceHouse() {
+	return this->house;
+}
+
+char* place::PlaceStreet() {
+	return this->street;
+
 }
