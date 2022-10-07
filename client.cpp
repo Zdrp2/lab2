@@ -23,8 +23,9 @@ void client::InputClient(client *cl, int i) {
 }
 
 void client::OutputClient(client cl[], int i) {
+	printf("<ID>\t\t<ÔÈÎ>\n");
 	for (int j = 0; j < i; j++)
-		printf("%d) %s\n", cl[j].clientId, cl[j].fio);
+		printf("%d%27s\n", cl[j].clientId, cl[j].fio);
 }
 
 char* client::ClientFIO() {

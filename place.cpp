@@ -26,8 +26,9 @@ void place::InputPlace(place *pl, int i) {
 }
 
 void place::OutputPlace(place pl[], int i) {
+	printf("<ID>\t\t\t<Адрес>\n");
 	for (int j = 0; j < i; j++)
-		printf("%d) %s	%d\n", pl[j].PlaceId, pl[j].street, pl[j].house);
+		printf("%d%28s, %d\n", pl[j].PlaceId, pl[j].street, pl[j].house);
 }
 
 void place::SetStreet(const char* p) {

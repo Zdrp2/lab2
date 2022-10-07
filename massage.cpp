@@ -26,8 +26,9 @@ void massage::InputMassage(massage *ms, int i) {
 }
 
 void massage::OutputMassage(massage ms[], int i) {
+	printf("<ID>\t\t<ÔÈÎ>\t\t<Ñòàæ>\n");
 	for (int j = 0; j < i; j++)
-		printf("%d) %d	%s\n", ms[j].MassageId, ms[j].exp, ms[j].fio);
+		printf("%d%25s%10d\n", ms[j].MassageId, ms[j].fio, ms[j].exp);
 }
 
 void massage::SetFIO(const char* p) {

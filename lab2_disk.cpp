@@ -16,9 +16,9 @@ int main()
 		table table[100];
 		clients->SetClient(&clients[i_cl], &i_cl, "Дмитрий Дмитриевич");
 		massagists->SetMassage(&massagists[i_m], &i_m, "Дмитрий Иванович", 13);
-		services->SetService(&services[i_sr], &i_sr, "Массаж шеи", 21);
-		places->SetPlace(&places[i_p], &i_p, "Иванова", 45);
-		table->SetTable(&table[i_t], &i_t, "Роман Евгеньевич", "Иван Иванович", "Массаж лица", "Дмитрова", 17, 1500);
+		services->SetService(&services[i_sr], &i_sr, "Массаж шейной зоны", 21);
+		places->SetPlace(&places[i_p], &i_p, "Ленина", 45);
+		table->SetTable(&table[i_t], &i_t, "Роман Евгеньевич", "Иван Иванович", "Массаж рук", "Дмитрова", 17, 1500);
 		do {
 			flag = 0;
 			system("cls");
@@ -69,7 +69,7 @@ int main()
 						system("cls");
 						places->InputPlace(&places[i_p], i_p);
 						i_p++;
-						printf("\nДобавить еще услугу - любая клавиша\nЗавершить - ESC\n");
+						printf("\nДобавить еще адрес - любая клавиша\nЗавершить - ESC\n");
 					} while (_getch() != 27);
 					break;
 				}
@@ -78,14 +78,14 @@ int main()
 						system("cls");
 						table->InputTable(table, clients, massagists, services, places, i_t, i_cl, i_m, i_sr, i_p);
 						i_t++;
-						printf("\nДобавить еще? - любая клавиша\nЗавершить - ESC\n");
+						printf("\nДобавить еще запись - любая клавиша\nЗавершить - ESC\n");
 					} while (_getch() != 27);
 					break;
 				}
 				case 27:
 					break;
 				default:
-					printf("\nНе понимаю, что вы хотите сделать\n");
+					printf("\nПовторите попытку\n");
 					_getch();
 					break;
 				}
@@ -98,7 +98,7 @@ int main()
 				printf("	2 - Вывод данных о массажистах\n");
 				printf("	3 - Вывод данных об услугах\n");
 				printf("	4 - Вывод данных о пунктах\n");
-				printf("	5 - Вывод записи\n");
+				printf("	5 - Вывод записей\n");
 				printf("	ESC - выход\n");
 				switch (_getch()) {
 				case '1': {
@@ -139,13 +139,12 @@ int main()
 				case 27:
 					break;
 				default:
-					printf("\nНе понимаю, что вы хотите сделать\n");
+					printf("\nПовторите попытку\n");
 					_getch();
 					break;
 				}
 			}
 			case 27:
-				flag = 1;
 				break;
 			}
 		} while (flag != 1);

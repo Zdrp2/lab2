@@ -26,8 +26,9 @@ void service::InputService(service *sr, int i) {
 }
 
 void service::OutputService(service sr[], int i) {
+	printf("<ID>\t\t<Услуга>\t<Цена>\n");
 	for (int j = 0; j < i; j++)
-		printf("%d) %s	%d\n", sr[j].ServiceId, sr[j].title, sr[j].price);
+		printf("%d%25s%10d\n", sr[j].ServiceId, sr[j].title, sr[j].price);
 }
 
 void service::SetTitle(const char* p) {
