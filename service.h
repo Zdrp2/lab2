@@ -11,11 +11,11 @@ public:
 
 	~service();
 
-	void InputService(service* sr, int i);
+	void InputService(int i);
 
-	void OutputService(service sr[], int i);
+	void OutputService(int i);
 
-	void SetService(service* sr, int* i_sr, const char* p, int pr);
+	void SetService(int* i_sr, const char* p, int pr);
 
 	void SetTitle(const char* p);
 

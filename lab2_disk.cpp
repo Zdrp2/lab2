@@ -14,11 +14,11 @@ int main()
 		service services[100];
 		place places[100];
 		table table[100];
-		clients->SetClient(&clients[i_cl], &i_cl, "Дмитрий Дмитриевич");
-		massagists->SetMassage(&massagists[i_m], &i_m, "Дмитрий Иванович", 13);
-		services->SetService(&services[i_sr], &i_sr, "Массаж шейной зоны", 21);
-		places->SetPlace(&places[i_p], &i_p, "Ленина", 45);
-		table->SetTable(&table[i_t], &i_t, "Роман Евгеньевич", "Иван Иванович", "Массаж рук", "Дмитрова", 17, 1500);
+		clients->SetClient(&i_cl, "Дмитрий Дмитриевич");
+		massagists->SetMassage(&i_m, "Дмитрий Иванович", 13);
+		services->SetService(&i_sr, "Массаж шейной зоны", 21);
+		places->SetPlace(&i_p, "Ленина", 45);
+		table->SetTable(&i_t, "Роман Евгеньевич", "Иван Иванович", "Массаж рук", "Дмитрова", 17, 1500);
 		do {
 			flag = 0;
 			system("cls");
@@ -40,7 +40,7 @@ int main()
 				case '1': {
 					do {
 						system("cls");
-						clients->InputClient(&clients[i_cl], i_cl);
+						clients->InputClient(i_cl);
 						i_cl++;
 						printf("\nДобавить еще клиента - любая клавиша\nЗавершить - ESC\n");
 					} while (_getch() != 27);
@@ -49,7 +49,7 @@ int main()
 				case '2': {
 					do {
 						system("cls");
-						massagists->InputMassage(&massagists[i_m], i_m);
+						massagists->InputMassage(i_m);
 						i_m++;
 						printf("\nДабавить еще массажиста - любая клавиша\nЗавершить - ESC\n");
 					} while (_getch() != 27);
@@ -58,7 +58,7 @@ int main()
 				case '3': {
 					do {
 						system("cls");
-						services->InputService(&services[i_sr], i_sr);
+						services->InputService(i_sr);
 						i_sr++;
 						printf("\nДобавить еще услугу - любая клавиша\nЗавершить - ESC\n");
 					} while (_getch() != 27);
@@ -67,7 +67,7 @@ int main()
 				case '4': {
 					do {
 						system("cls");
-						places->InputPlace(&places[i_p], i_p);
+						places->InputPlace(i_p);
 						i_p++;
 						printf("\nДобавить еще адрес - любая клавиша\nЗавершить - ESC\n");
 					} while (_getch() != 27);
@@ -76,7 +76,7 @@ int main()
 				case '5': {
 					do {
 						system("cls");
-						table->InputTable(table, clients, massagists, services, places, i_t, i_cl, i_m, i_sr, i_p);
+						table->InputTable(clients, massagists, services, places, i_t, i_cl, i_m, i_sr, i_p);
 						i_t++;
 						printf("\nДобавить еще запись - любая клавиша\nЗавершить - ESC\n");
 					} while (_getch() != 27);
@@ -103,35 +103,35 @@ int main()
 				switch (_getch()) {
 				case '1': {
 					system("cls");
-					clients->OutputClient(clients, i_cl);
+					clients->OutputClient(i_cl);
 					printf("\nНажмите любую клавишу для продолжения\n");
 					_getch();
 					break;
 				}
 				case '2': {
 					system("cls");
-					massagists->OutputMassage(massagists, i_m);
+					massagists->OutputMassage(i_m);
 					printf("\nНажмите любую клавишу для продолжения\n");
 					_getch();
 					break;
 				}
 				case '3': {
 					system("cls");
-					services->OutputService(services, i_sr);
+					services->OutputService(i_sr);
 					printf("\nНажмите любую клавишу для продолжения\n");
 					_getch();
 					break;
 				}
 				case '4': {
 					system("cls");
-					places->OutputPlace(places, i_p);
+					places->OutputPlace(i_p);
 					printf("\nНажмите любую клавишу для продолжения\n");
 					_getch();
 					break;
 				}
 				case '5': {
 					system("cls");
-					table->OutputTable(table, i_t);
+					table->OutputTable(i_t);
 					printf("\n\nНажмите любую клавишу для продолжения\n");
 					_getch();
 					break;

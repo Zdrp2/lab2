@@ -11,11 +11,11 @@ public:
 
 	~place();
 
-	void InputPlace(place* pl, int i);
+	void InputPlace(int i);
 
-	void OutputPlace(place pl[], int i);
+	void OutputPlace(int i);
 
-	void SetPlace(place* pl, int* i_p, const char* p, int h);
+	void SetPlace(int* i_p, const char* p, int h);
 
 	void SetStreet(const char* p);
 

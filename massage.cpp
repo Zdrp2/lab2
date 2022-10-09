@@ -6,29 +6,25 @@ massage::massage() {
 massage::~massage() {
 }
 
-void massage::SetMassage(massage* ms, int* i_m, const char* p, int st) {
-	massage ms1;
-	strcpy(ms1.fio, p);
-	ms1.exp = st;
-	ms1.MassageId = *i_m + 1;
-	*ms = ms1;
+void massage::SetMassage(int* i_m, const char* p, int st) {
+	strcpy((this+*i_m)->fio, p);
+	(this+*i_m)->exp = st;
+	(this+*i_m)->MassageId = *i_m + 1;
 	*i_m = *i_m + 1;
 }
 
-void massage::InputMassage(massage *ms, int i) {
-	massage ms1;
+void massage::InputMassage(int i) {
 	printf("Введите стаж массажиста: ");
-	InputInt(&ms1.exp);
+	InputInt(&(this + i)->exp);
 	printf("Введите ФИО массажиста: ");
-	InputString(ms1.fio);
-	ms1.MassageId = i + 1;
-	*ms = ms1;
+	InputString((this + i)->fio);
+	(this + i)->MassageId = i + 1;
 }
 
-void massage::OutputMassage(massage ms[], int i) {
+void massage::OutputMassage(int i) {
 	printf("<ID>\t\t<ФИО>\t\t<Стаж>\n");
 	for (int j = 0; j < i; j++)
-		printf("%d%25s%10d\n", ms[j].MassageId, ms[j].fio, ms[j].exp);
+		printf("%d%25s%10d\n", (this+j)->MassageId, (this + j)->fio, (this + j)->exp);
 }
 
 void massage::SetFIO(const char* p) {

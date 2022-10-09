@@ -10,11 +10,11 @@ public:
 
 	~client();
 
-	void InputClient(client* cl, int i);
+	void InputClient(int i);
 
-	void SetClient(client* cl, int* i_cl, const char* p);
+	void SetClient(int* i_cl, const char* p);
 
-	void OutputClient(client cl[], int i);
+	void OutputClient(int i);
 
 	char* ClientFIO();
 

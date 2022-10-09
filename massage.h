@@ -11,11 +11,11 @@ public:
 
 	~massage();
 
-	void InputMassage(massage* ms, int);
+	void InputMassage(int);
 
-	void OutputMassage(massage ms[], int i);
+	void OutputMassage(int i);
 
-	void SetMassage(massage* ms, int* i_m, const char* p, int st);
+	void SetMassage(int* i_m, const char* p, int st);
 
 	char* MassageFIO();
 
