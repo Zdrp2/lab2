@@ -13,19 +13,23 @@ bool SavedString(char *p)
 		return true;
 }
 
-void InputString(char* p)
+void InputString(string p)
 {
 	int f;
+	char buff[256];
+	strcpy(buff, p.c_str());
 	do {
 		f = 0;
-		fgets(p, 100, stdin);
-		if (p[0] == '\n')
+		fgets(buff, 100, stdin);
+		if (buff[0] == '\n')
 			f = 1;
 		if (f == 0)
 		{
-			p[strlen(p) - 1] = '\0';
-			if (!SavedString(p))
+			buff[strlen(buff) - 1] = '\0';
+			if (!SavedString(buff))
 				f = 1;
+			else
+				p = buff;
 		}
 		if (f == 1)
 		{

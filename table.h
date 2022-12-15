@@ -23,5 +23,7 @@ public:
 
 	void OutputTable(int i);
 
-	void SetTable(int* i_t, const char* cl, const char* ms, const char* sr, const char* st, int h, int p);
+	void SetTable(int* i_t, string cl, string ms, string sr, string st, int h, int p);
+
+	int GetId();
 };

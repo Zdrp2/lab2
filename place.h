@@ -4,7 +4,7 @@ class place
 {
 private:
 	int PlaceId;
-	char street[50];
+	string street;
 	int house;
 public:
 	place();
@@ -15,13 +15,13 @@ public:
 
 	void OutputPlace(int i);
 
-	void SetPlace(int* i_p, const char* p, int h);
+	void SetPlace(int* i_p, string p, int h);
 
-	void SetStreet(const char* p);
+	void SetStreet(string p);
 
 	void SetHouse(int k);
 
 	int PlaceHouse();
 
-	char* PlaceStreet();
+	string PlaceStreet();
 };

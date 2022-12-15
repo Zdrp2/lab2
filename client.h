@@ -2,9 +2,10 @@
 
 class client
 { 
+	friend class table;
 private:
 	int clientId;
-	char fio[100];
+	string fio;
 public:
 	client();
 
@@ -12,11 +13,11 @@ public:
 
 	void InputClient(int i);
 
-	void SetClient(int* i_cl, const char* p);
+	void SetClient(int* i_cl, string p);
 
 	void OutputClient(int i);
 
-	char* ClientFIO();
+	string ClientFIO();
 
-	void SetFIO(const char* p);
+	void SetFIO(string p);
 };

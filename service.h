@@ -5,7 +5,7 @@ class service
 private:
 	int ServiceId;
 	int price;
-	char title[100];
+	string title;
 public:
 	service();
 
@@ -15,13 +15,13 @@ public:
 
 	void OutputService(int i);
 
-	void SetService(int* i_sr, const char* p, int pr);
+	void SetService(int* i_sr, string p, int pr);
 
-	void SetTitle(const char* p);
+	void SetTitle(string p);
 
 	void SetPrice(int k);
 
-	char* ServiceTitle();
+	string ServiceTitle();
 
 	int ServicePrice();
 

@@ -1,12 +1,13 @@
 #include "table.h"
 
 table::table() {
+
 }
 
 table::~table() {
 }
 
-void table::SetTable(int* i_t, const char* cl, const char* ms, const char* sr, const char* st, int h, int p) {
+void table::SetTable(int* i_t, string cl, string ms, string sr, string st, int h, int p) {
 	(this + *i_t)->Client.SetFIO(cl);
 	(this + *i_t)->Massagist.SetFIO(ms);
 	(this + *i_t)->Service.SetTitle(sr);
@@ -60,5 +61,20 @@ void table::InputTable(client cl[], massage ms[], service sr[], place pl[], int 
 void table::OutputTable(int i) {
 	printf("<ID>		<ФИО клиента>		     <ФИО массажсита>          <Услуга>	                     <Адрес>            <Цена>\n");
 	for (int j = 0; j < i; j++)
-		printf("\n%d%30s%30s%20s%25s,%d%15d", this[j].TableId, this[j].Client.ClientFIO(), this[j].Massagist.MassageFIO(), this[j].Service.ServiceTitle(), this[j].Place.PlaceStreet(), this[j].Place.PlaceHouse(), this[j].Service.ServicePrice());
+	{
+		printf("\n%d  ", this[j].TableId);
+		cout << this[j].Client.ClientFIO();
+		printf(" ");
+		cout << this[j].Massagist.MassageFIO();
+		printf(" ");
+		cout << this[j].Service.ServiceTitle();
+		printf(" ");
+		cout << this[j].Place.PlaceStreet();
+		printf(", %d%10d", this[j].Place.PlaceHouse(), this[j].Service.ServicePrice());
+	}
+}
+
+//друж функция
+int table::GetId() {
+	return this->Client.clientId;
 }

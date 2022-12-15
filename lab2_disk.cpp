@@ -13,12 +13,13 @@ int main()
 		massage massagists[100];
 		service services[100];
 		place places[100];
-		table table[100];
-		clients->SetClient(&i_cl, "Дмитрий Дмитриевич");
-		massagists->SetMassage(&i_m, "Дмитрий Иванович", 13);
-		services->SetService(&i_sr, "Массаж шейной зоны", 21);
+		table table[100], tables[5][5];
+		clients->SetClient(&i_cl, "Lflfflо");
+		massagists->SetMassage(&i_m, "Кdffd dsg", 13);
+		services->SetService(&i_sr, "Массаж ног", 21);
 		places->SetPlace(&i_p, "Ленина", 45);
-		table->SetTable(&i_t, "Роман Евгеньевич", "Иван Иванович", "Массаж рук", "Дмитрова", 17, 1500);
+		table->SetTable(&i_t, "sdfdg", "dfgdf", "dfgdfg", "dfgdfg", 17, 1500);
+		table->SetTable(&i_t, "DDDD", "DDDFF", "DSSSS", "AAAA", 17, 1500);
 		do {
 			flag = 0;
 			system("cls");
@@ -132,6 +133,15 @@ int main()
 				case '5': {
 					system("cls");
 					table->OutputTable(i_t);
+					printf("\n\nДвумерные массивы:\n");
+					tables[0][0] = table[0];
+					tables[0][1] = table[1];
+					for (int i = 0; i < 1; i++) {
+						for (int j = 0; j < 2; j++) {
+							tables[i][j].OutputTable(1);
+						}
+						puts("");
+					}
 					printf("\n\nНажмите любую клавишу для продолжения\n");
 					_getch();
 					break;
@@ -151,4 +161,5 @@ int main()
 		system("cls");
 		printf("\nДля завершения программы нажмите ESC\nДля возврата в глвное меню нажмите любую клавишу\n");
 	} while (_getch() != 27);
+	
 }

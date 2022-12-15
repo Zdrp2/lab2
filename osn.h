@@ -3,6 +3,7 @@
 #define STR "0123456789"
 #define STR_INT " ~`!@#$%^&*,.()\\\"_-+=¹;:?/|[]{}<>'àáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßqwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM\n"
 #include <stdio.h>
+#include <iostream>
 #include <stdlib.h>
 #include <string.h>
 #include <Windows.h>
@@ -13,10 +14,12 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <string>
+using namespace std;
 
 bool SavedString(char* p);
 
-void InputString(char* p);
+void InputString(string p);
 
 bool SaveInt(char* p);
 

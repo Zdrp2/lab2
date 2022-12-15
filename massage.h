@@ -5,7 +5,7 @@ class massage
 private:
 	int MassageId;
 	int exp;
-	char fio[100];
+	string fio;
 public:
 	massage();
 
@@ -15,9 +15,9 @@ public:
 
 	void OutputMassage(int i);
 
-	void SetMassage(int* i_m, const char* p, int st);
+	void SetMassage(int* i_m, string p, int st);
 
-	char* MassageFIO();
+	string MassageFIO();
 
-	void SetFIO(const char* p);
+	void SetFIO(string p);
 };
